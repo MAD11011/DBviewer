@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>My Website</title>
+        <link rel="stylesheet" href="/css/DBviewer-app-css/index.css">
+    </head>
+    <body>
+            <section class="dbviewer" >
+                <header class="header">
+                    <form hx-post="/query" hx-target="#dblist" hx-swap="innerHTML">
+                        <input id="search" class="query-new" name="search" placeholder="Search">
+                    </form>
+                </header>
+                <section class="main">
+                    <ul id="dblist" class="dblist">
+                </section>
+                <footer class="footer">
+                    <span id="db-count" class="db-count">
+                        <strong hx-put="/count" hx-trigger="load" hx-swap="innerHTML">?</strong>
+                         items in DB
+                    </span>
+                    <!--
+                    <span id="matches-count" class="matches-count">
+                         matches found
+                        <strong hx-put="/matchcount" hx-trigger="submit from:find#search" hx-swap="innerHTML">None</strong>
+                    </span>
+
+                    -->
+                </footer>
+            </section>
+
+            </main>
+            <script src="./htmx.min.js"></script>
+    </body>
+</html>
+
